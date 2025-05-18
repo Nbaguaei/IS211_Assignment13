@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+  {% for post in posts %}
+    <h2><a href="{{ url_for('view_post', post_id=post.id) }}">{{ post.title }}</a></h2>
+    <p>{{ post.content|safe }}</p>
+    <small>By {{ post.user.username }} on {{ post.published_date }}</small>
+    <hr>
+  {% endfor %}
+{% endblock %}
